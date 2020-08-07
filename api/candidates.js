@@ -16,6 +16,8 @@ import cookieParser from "cookie-parser";
 import Resume from "../models/resume";
 import Job from "../models/job";
 
+import AzureHelper from '../config/azure_helpers';
+
 const router = express.Router();
 
 router.use(cookieParser());
@@ -303,7 +305,7 @@ router.post("/upload-resume", (req, res, next) => {
 
     let form = new formidable.IncomingForm();
     
-    form.on('fileBegin', function (name, file){
+    /* form.on('fileBegin', function (name, file){
         if(file.name != ''){
             // Check if dir exist. If not create
             helpers.checkIfDirectoryExist(config.resume_upload_dir);
@@ -324,7 +326,7 @@ router.post("/upload-resume", (req, res, next) => {
 
             helpers.copyFile(file.path, config.main_assets_resume_dir);
         }
-    });
+    }); */
 
     form.parse(req, function(err, fields, files) {
         if(err) {logger.log(err)}
@@ -334,12 +336,15 @@ router.post("/upload-resume", (req, res, next) => {
             logger.log('##### files #####');
             logger.log(files);
 
+            let azureHelper = new AzureHelper();
+            azureHelper.uploadResumeToAzure(files);
+
             let user_id = user.user_id;
             let resume_id = fields.resume_id;
             let resume_url = ''; 
 
             if(files.resume.name != ''){
-                resume_url = files.resume.name;
+                resume_url = config.azure_resume_url + files.resume.name;
             }
 
             let userObj = new User();
@@ -378,7 +383,7 @@ router.post("/upload-profile-picture", (req, res, next) => {
 
     let form = new formidable.IncomingForm();
 
-    form.on('fileBegin', function (name, file){
+    /* form.on('fileBegin', function (name, file){
         if(file.name != ''){
             // Check if dir exist. If not create
             helpers.checkIfDirectoryExist(config.profile_picture_upload_dir);
@@ -398,18 +403,21 @@ router.post("/upload-profile-picture", (req, res, next) => {
             logger.log('Uploaded ' + file.name);
             helpers.copyFile(file.path, config.main_assets_profile_pic_dir);
         }
-    });
+    }); */
 
     form.parse(req, function(err, fields, files) {
         if(err) {logger.log(err)}
         else{
+            let azureHelper = new AzureHelper();
+            azureHelper.uploadProfilePictureToAzure(files);
+
             let user_id = userData.user_id;
             let profile_pic_url = '';
             let full_profile_pic_url = '';
 
             if(files.profile_picture.name != ''){
                 profile_pic_url = files.profile_picture.name;
-                full_profile_pic_url = config.profile_picture_dir + profile_pic_url;
+                full_profile_pic_url = config.azure_profile_pic_url + profile_pic_url;
             }
 
             let user = new User();

@@ -1933,7 +1933,8 @@ section.jobbbs {
   -webkit-box-shadow: 0px 10px 30px rgba(6, 148, 42, 0.05);
   box-shadow: 0px 10px 30px rgba(6, 148, 42, 0.05);
   border-radius: 5px;
-  margin-top: 46.67px;
+  /* margin-bottom: 40px; */
+  /* margin-top: 46.67px; */
 }
 
 .search_job_page_jobs_header {
@@ -2158,11 +2159,11 @@ section.jobbbs {
 /* End of Search job page */
 /* job full description */
 section.job_full_desc {
-  padding: 50px 0 120px;
+  padding: 0px 0 120px;
 }
 
 div.job_full_desc > section {
-  padding: 40px 0;
+  padding: 0 0 40px;
 }
 
 div.job_full_desc > section > header > h5 {
@@ -2260,7 +2261,9 @@ div.policy_page > section > article > p {
 }
 
 .job_steps > div {
-  width: 47%;
+  /* width: 47%; */
+  width: 100%;
+
 }
 
 .form_error_msg {
@@ -2734,4 +2737,92 @@ div.policy_page > section > article > p {
 .how_it_works_each_step > div:nth-child(2) {
   width: 18%;
 }
+
+/* Ads */
+.ads-row {
+  width: 100%;
+  /* margin-bottom: 40px; */
+}
+.ads-row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ads-margin-top-medium {
+  margin-top: 40px;
+}
+
+.ads-margin-bottom-medium {
+  margin-bottom: 40px;
+}
+
+.ads-margin-top-small {
+  margin-top: 20px;
+}
+
+.ads-margin-bottom-small {
+  margin-bottom: 20px;
+}
+
+.ads {
+  display: grid;
+  place-items: center;
+  background-color: rgb(206, 206, 206);
+  color: #fff;
+  font-size: 25px;
+  font-family: candara;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.three00xx250 {
+  max-width: 300px;
+  height: 250px;
+}
+
+.three36xx280 {
+  max-width: 336px;
+  height: 280px;
+}
+
+.seven28xx90 {
+  max-width: 728px;
+  height: 90px;
+}
+
+.three00xx600 {
+  max-width: 300px;
+  height: 600px;
+}
+
+.three20xx100 {
+  max-width: 320px;
+  height: 100px;
+}
+/*  */
+/* Jobs details update */
+.main__section {
+  display: grid;
+  grid-template-columns: 70% 27%;
+  grid-gap: 40px 3%;
+}
+/* @media only screen and (max-width: ) {
+  .main__section {
+  display: grid;
+  grid-template-columns: 70% 28%;
+  grid-gap: 40px 2%;
+}
+
+} */
+
+.job-details__side-nav {
+  /* background-color: red; */
+}
+.companies_on_our_platform {
+  justify-content: space-evenly;
+}
+/*  */
 /*# sourceMappingURL=one.css.map */

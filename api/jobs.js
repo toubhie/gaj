@@ -12,6 +12,8 @@ import path from 'path';
 import mailer from '../config/mail/mailer';
 import logger from './../config/log4js';
 
+import AzureHelper from '../config/azure_helpers';
+
 const router = express.Router();
 
 router.use(cookieParser());
@@ -532,7 +534,7 @@ router.post("/processapply", (req, res, next) => {
 
     let form = new formidable.IncomingForm();
     
-    form.on('fileBegin', function (name, file){
+    /* form.on('fileBegin', function (name, file){
         if(file.name != ''){
             // Check if dir exist. If not create
             helpers.checkIfDirectoryExist(config.additional_resume_upload_dir);
@@ -552,7 +554,7 @@ router.post("/processapply", (req, res, next) => {
             logger.log('Uploaded ' + file.name);
             helpers.copyFile(file.path, config.main_assets_additional_resume_dir);
         }
-    });
+    }); */
 
     form.parse(req, function(err, fields, files) {
         if(err) {logger.log(err)}
@@ -561,6 +563,9 @@ router.post("/processapply", (req, res, next) => {
             logger.log(fields);
             logger.log('##### files #####');
             logger.log(files);
+
+            let azureHelper = new AzureHelper();
+            azureHelper.uploadAdditionalFilesToAzure(files);
 
             let user_id = user.user_id;
             let user_email = user.email;
@@ -572,7 +577,7 @@ router.post("/processapply", (req, res, next) => {
             let additional_resume_url = '';
 
             if(files.additional_file.name != ''){
-                additional_resume_url = files.additional_file.name;
+                additional_resume_url = config.azure_additional_files_url + files.additional_file.name;
             }
 
             cover_letter = cover_letter.replace("'", "\\'");

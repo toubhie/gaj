@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
+    "@azure/abort-controller": "^1.0.0",
+    "@azure/storage-blob": "^12.0.0",
     "app-root-path": "^3.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",

@@ -85,96 +85,134 @@
 
     </nav>
 
+    <!-- Main body -->
 
-    <section class="job_full_desc">
-        <div class="site_row">
-            <div class="site_container job_full_desc">
-                <section>
-                    <header>
-                        <h5>
-                            Job Summary
-                        </h5>
-                    </header>
-                    <article>
+    <main class="main__section">
 
-                        <% if((typeof jobData.job_type_name != 'undefined') && (jobData.job_type_name != 'null') 
-                            && (jobData.job_type_name != null) && (jobData.job_type_name != '')){ %>
-                                <p><b>Job Type: </b> <%=jobData.job_type_name%></p>
-                        <% } %>
-
-                        <% if((typeof jobData.job_category_name != 'undefined') && (jobData.job_category_name != 'null') 
-                            && (jobData.job_category_name != null) && (jobData.job_category_name != '')){ %>
-                                <p><b>Job Category: </b> <%=jobData.job_category_name%></p>
-                        <% } %>
-
-                        <% if((typeof jobData.experience_level_name != 'undefined') && (jobData.experience_level_name != 'null') 
-                            && (jobData.experience_level_name != null) && (jobData.experience_level_name != '')){ %>
-                                <p><b>Experience Level: </b> <%=jobData.experience_level_name%></p>
-                        <% } %>
-
-                        <% if((typeof jobData.min_year_of_experience != 'undefined') && (jobData.min_year_of_experience != 'null') 
-                            && (jobData.min_year_of_experience != null) && (jobData.min_year_of_experience != '')){ %>
-                                <p><b>Minimum Year of Experience: </b> <%=jobData.min_year_of_experience%> year(s)</p>
-                        <% } %>
-                         
-                        <% if((typeof jobData.min_qualification_name != 'undefined') && (jobData.min_qualification_name != 'null') 
-                            && (jobData.min_qualification_name != null) && (jobData.min_qualification_name != '')){ %>
-                                <p><b>Minimum Qualification: </b> <%=jobData.min_qualification_name%></p>
-                        <% } %>
-
-                        <% if((typeof jobData.expected_salary != 'undefined') && (jobData.expected_salary != 'null') 
-                            && (jobData.expected_salary != null) && (jobData.expected_salary != '')){ %>
-                                <p><b>Expected Salary: </b> &#8358;<%=jobData.expected_salary%></p>
-                        <% } %>
-                    
-                    </article>
-                </section>
-                
-               
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="site_row">
-            <div class="site_container job_full_desc">
-                
-                <%if(jobData.company_description != ''){ %>
+        <section class="job_full_desc">
+            <div class="site_row">
+                <div class="site_container job_full_desc">
                     <section>
                         <header>
                             <h5>
-                                Where You’ll Work
+                                Job Summary
                             </h5>
                         </header>
                         <article>
-                            <p id="company_description"></p>                            
+    
+                            <% if((typeof jobData.job_type_name != 'undefined') && (jobData.job_type_name != 'null') 
+                                && (jobData.job_type_name != null) && (jobData.job_type_name != '')){ %>
+                                    <p><b>Job Type: </b> <%=jobData.job_type_name%></p>
+                            <% } %>
+    
+                            <% if((typeof jobData.job_category_name != 'undefined') && (jobData.job_category_name != 'null') 
+                                && (jobData.job_category_name != null) && (jobData.job_category_name != '')){ %>
+                                    <p><b>Job Category: </b> <%=jobData.job_category_name%></p>
+                            <% } %>
+    
+                            <% if((typeof jobData.experience_level_name != 'undefined') && (jobData.experience_level_name != 'null') 
+                                && (jobData.experience_level_name != null) && (jobData.experience_level_name != '')){ %>
+                                    <p><b>Experience Level: </b> <%=jobData.experience_level_name%></p>
+                            <% } %>
+    
+                            <% if((typeof jobData.min_year_of_experience != 'undefined') && (jobData.min_year_of_experience != 'null') 
+                                && (jobData.min_year_of_experience != null) && (jobData.min_year_of_experience != '')){ %>
+                                    <p><b>Minimum Year of Experience: </b> <%=jobData.min_year_of_experience%> year(s)</p>
+                            <% } %>
+                             
+                            <% if((typeof jobData.min_qualification_name != 'undefined') && (jobData.min_qualification_name != 'null') 
+                                && (jobData.min_qualification_name != null) && (jobData.min_qualification_name != '')){ %>
+                                    <p><b>Minimum Qualification: </b> <%=jobData.min_qualification_name%></p>
+                            <% } %>
+    
+                            <% if((typeof jobData.expected_salary != 'undefined') && (jobData.expected_salary != 'null') 
+                                && (jobData.expected_salary != null) && (jobData.expected_salary != '')){ %>
+                                    <p><b>Expected Salary: </b> &#8358;<%=jobData.expected_salary%></p>
+                            <% } %>
+                        
                         </article>
                     </section>
-                <%}%>
                     
-                <%if(jobData.job_description != ''){ %>
-                    <section>
-                        <header>
-                            <h5>
-                                What you’ll do & Responsibilities
-                            </h5>
-                        </header>
-                        <article>
-                            <p id="job_description"></p>    
-                        </article>
-
-                        <%if(jobData.job_responsibilities != ''){ %>
+                   
+                </div>
+            </div>
+    
+            <hr>
+    
+            <div class="site_row">
+                <div class="site_container job_full_desc">
+                    
+                    <%if(jobData.company_description != ''){ %>
+                        <section>
+                            <header>
+                                <h5>
+                                    Where You’ll Work
+                                </h5>
+                            </header>
                             <article>
-                                <p id="job_responsibilities"></p>    
+                                <p id="company_description"></p>                            
                             </article>
-                        <%}%> 
-                    </section>
-                <%}%> 
-                
-                <p><b>Application Deadline: </b> <%=jobData.application_deadline%></p>
+                        </section>
+                    <%}%>
+                        
+                    <%if(jobData.job_description != ''){ %>
+                        <section>
+                            <header>
+                                <h5>
+                                    What you’ll do & Responsibilities
+                                </h5>
+                            </header>
+                            <article>
+                                <p id="job_description"></p>    
+                            </article>
+    
+                            <%if(jobData.job_responsibilities != ''){ %>
+                                <article>
+                                    <p id="job_responsibilities"></p>    
+                                </article>
+                            <%}%> 
+                        </section>
+                    <%}%> 
+                    
+                    <p><b>Application Deadline: </b> <%=jobData.application_deadline%></p>
+                </div>
             </div>
-        </div>
-    </section>
+
+            <!-- 728 x 90 Ad size -->
+            <div class="ads-row ads-margin-top-medium">
+                <div class="ads seven28xx90">
+                <h4>728 x 90</h4>
+                </div>
+            </div>
+        </section>
+
+        <aside class="job-details__side-nav">
+           <!-- 336 x 280 Ad size -->
+            <div class="ads-row">
+                <div class="ads three00xx250">
+                <h4>300 x 250</h4>
+                </div>
+            </div>
+
+            <!-- 336 x 280 Ad size -->
+            <div class="ads-row ads-margin-top-medium">
+                <div class="ads three00xx250">
+                <h4>300 x 250</h4>
+                </div>
+            </div>
+
+            <!-- 336 x 280 Ad size -->
+            <div class="ads-row ads-margin-top-medium">
+                <div class="ads three00xx600">
+                <h4>300 x 600</h4>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+
+    <!--  -->
 
     <% include includes/landing_page/footer %> 
 

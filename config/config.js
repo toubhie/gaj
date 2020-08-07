@@ -33,6 +33,24 @@ module.exports = {
     "ap_status_recommended"   :     4,
     "ap_status_not_recommended" :   5,
 
+    //Azure Strings
+    "azure_storage_connection_string" : process.env.AZURE_STORAGE_CONNECTION_STRING,
+    "azure_storage_container_name" : "getajobng",
+    "docs_sub_container" : "docs/",
+    "images_sub_container" : "images/",
+    "profile_pictures_folder" : "profile_pictures/",
+    "company_logos_folder" : "company_logos/",
+    "resumes_folder" : "resumes/",
+    "additional_files_folder" : "additional_files/",
+
+    "azure_storage_account_name" : "cilappstorageaccount",
+    "azure_storage_access_key" : "icejvXX2h8y2skvKZ+bF1D9SW5ZJR2cX+e6UO6URXfb05RH8gkwMSjYn+WpNNFkOejqOEhMf3nV0z1gqbUnNFQ==",
+
+    "azure_resume_url" : "https://cilappstorageaccount.blob.core.windows.net/getajobng/docs/resumes/",
+    "azure_additional_files_url" : "https://cilappstorageaccount.blob.core.windows.net/getajobng/docs/additional_files/",
+    "azure_profile_pic_url" : "https://cilappstorageaccount.blob.core.windows.net/getajobng/images/profile_pictures/",
+    "azure_company_logo_url" : "https://cilappstorageaccount.blob.core.windows.net/getajobng/images/company_logos/",
+
     // Session Setting
     "session_secret"           :     "%#*G3tAj0bNg*#%",   
     "session_resave"           :     true,   
