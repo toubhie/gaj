@@ -266,6 +266,13 @@ class User {
         return sql;
     }
 
+    static getAdminData(user_id){
+        let sql = `SELECT u.*, ur.role_id FROM user u, user_role ur \
+            WHERE u.user_id = ${user_id} AND u.user_id = ur.user_id`;
+            
+        return sql;
+    }
+
     static getRecruiterData(user_id){
         let sql = `SELECT u.*, ur.role_id, c.company_id, c.company_name FROM \
             user u, user_role ur, company c WHERE u.user_id = ${user_id} \

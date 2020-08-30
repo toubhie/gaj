@@ -77,7 +77,11 @@ passport.use(new LocalStrategy(
 
                 if(data[0].role_id == config.candidate_role_tag){
                     getUserDataQuery = User.getCandidateData(data[0].user_id);
-                } else{
+                } 
+                else if(data[0].role_id == config.admin_role_tag){
+                    getUserDataQuery = User.getAdminData(data[0].user_id);
+                } 
+                else{
                     getUserDataQuery = User.getRecruiterData(data[0].user_id);
                 }
 
@@ -131,6 +135,10 @@ auth.post('/login', passport.authenticate('local', {
 
                     else if(user_role == config.recruiter_role_tag){
                         processRecruiterLogin(req, res, userData, user_role);
+                    }
+
+                    else if(user_role == config.admin_role_tag){
+                        processAdminLogin(req, res, userData, user_role);
                     }
 
                     else{
@@ -252,6 +260,12 @@ function processRecruiterLogin(req, res, user, user_role){
             }
         }
     })
+}
+
+function processAdminLogin(req, res, user, user_role){
+    logger.log("User is an ADMIN. Getting all info ");
+
+    res.redirect('/admins/dashboard');
 }
 
 function processCandidateLoginToAssessment(req, res, user, token){

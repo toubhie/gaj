@@ -121,7 +121,7 @@ let mailFunctions = {
 
     sendJobPostedMail : function(req, recipient_email, recipient_full_name, job_id, job_title){
         //let pre_link = 'https://' + req.get('host');
-        let link = 'https://www.getajobng.com/recruiters/job-detail/' + job_id;
+        let link = 'https://www.getajobng.com/job-detail/' + job_id;
         //let fullLink = pre_link + link;
 
         let mailOptions = {
@@ -194,8 +194,8 @@ let mailFunctions = {
             text : 'Welcome',
             html : '<p>Hello <b>' + fullName + ',</b></p> \
                 <p>You recently requested to reset your password.</p> \
-                <p>To reset your password, please follow the link below:</p></br> \
-                <p><a href="' + link + '">Reset Password</a></p></br> \
+                <p>To reset your password, please follow the link below:</p> \
+                <p><a href="' + link + '">Reset Password</a></p> \
                 <p>If you are not sure why you are receiving this message, you can report it to us by emailing info@getajobng.com.</p>\
                 <p>If you suspect someone may have unauthorised access to your account, we suggest you change your password as a precaution by visiting your Dashboard -> Settings -> Change Password.</p>\
                 <p>Best Regards,</p> \

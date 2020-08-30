@@ -3,6 +3,9 @@ import path from 'path';
 module.exports = {
     "candidate_role_tag"      :     "1",
     "recruiter_admin_role_tag"  :     "2",
+    "recruiting_agency_role_tag"  :     "3",
+    "admin_role_tag"  :     "4",
+    "super_admin_role_tag"  :     "5",
     "recruiter_role_tag"      :     "6",
     "salt"                    :     "G3tAj0bNg",
     "true"                    :     1,
@@ -71,7 +74,7 @@ module.exports = {
     "local_db_host"           :     "localhost",
     "local_db_username"       :     "root",
     "local_db_password"       :     "",
-    "local_database"          :     "getajobng",
+    "local_database"          :     "getajobng_prod_sample",
 	
 	"sql_server_host"         :     "sa",
 	"sql_server_username"     :     "sa",
