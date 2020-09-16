@@ -30,7 +30,7 @@ router.use(session({
 
 router.get("/", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         db.query(Job.getAllJobsQuery(), (err, data) => {
             if (!err) {
@@ -47,7 +47,7 @@ router.get("/", (req, res, next) => {
 
 router.get("/get-all-jobs", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         db.query(Job.getAllJobsQuery(), (err, data) => {
             if (!err) {
@@ -68,7 +68,7 @@ router.get("/get-all-jobs", (req, res, next) => {
 
 router.get("/get-all-job-filters", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         db.query(Job.getAllIndustries(), (err, data) => {
             if (!err) {
@@ -138,7 +138,7 @@ router.get("/get-all-states", (req, res, next) => {
 
 router.get("/get-all-job-types", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        // helpers.checkifAuthenticated(req, res);
 
         db.query(Job.getAllJobTypes(), (err, data) => {
             if (!err) {
@@ -157,7 +157,7 @@ router.get("/get-all-job-types", (req, res, next) => {
 
 router.get("/get-all-job-post-params", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         db.query(Job.getAllStates(), (err, data) => {
             if (!err) {
@@ -232,7 +232,7 @@ router.get("/get-all-job-post-params", (req, res, next) => {
 
 router.get("/get-all-cv-search-params", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         db.query(Job.getAllStates(), (err, data) => {
             if (!err) {
@@ -277,7 +277,7 @@ router.get("/get-all-industries", (req, res, next) => {
 
 router.get("/get-all-application-status", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         db.query(Job.getAllApplicationStatus(), (err, data) => {
             if (!err) {
@@ -296,7 +296,7 @@ router.get("/get-all-application-status", (req, res, next) => {
 
 router.get("/get-all-candidate-job-applications", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         var userData = req.session.passport.user;
         var user_id = userData.user_id;
@@ -321,7 +321,7 @@ router.get("/get-all-candidate-job-applications", (req, res, next) => {
 
 router.get("/filter-jobs", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         var industry_params = req.query.f_industry;
         var skill_params = req.query.f_skill;
@@ -358,7 +358,7 @@ router.get("/filter-jobs", (req, res, next) => {
 
 router.get("/keyword-search", (req, res, next) => {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         var keyword = req.query.keyword;
 
@@ -481,7 +481,7 @@ router.get("/get-candidate-job-recommendations-for-dashboard", (req, res, next) 
 
 router.get('/get-last-5-jobs', function(req, res) {
     try {
-        helpers.checkifAuthenticated(req, res);
+        //helpers.checkifAuthenticated(req, res);
 
         var userData = req.session.passport.user;
         var user_id = userData.user_id;
