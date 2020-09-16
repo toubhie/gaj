@@ -11,16 +11,14 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "build": "babel . --ignore node_modules,scratch -d build --copy-files",
-        "start": "nodemon server.js --exec babel-node --presets env",
-        "start1": "rimraf build && npm run build && node ./build/server.js",
-        "start2": "npm run build && node ./build/server.js && rimraf build/build"
+        "start": "node server.js"
     },
     "dependencies": {
-        "@sendgrid/mail": "^6.4.0",
         "@azure/abort-controller": "^1.0.0",
         "@azure/storage-blob": "^12.0.0",
+        "@sendgrid/mail": "^6.4.0",
         "app-root-path": "^3.0.0",
+        "azure-storage": "^2.10.3",
         "babel-polyfill": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
         "babel-preset-stage-0": "^6.24.1",
@@ -40,6 +38,7 @@
         "express-session": "^1.16.2",
         "flash": "^1.1.0",
         "formidable": "^1.2.1",
+        "fs": "0.0.1-security",
         "hexo-deployer-git": "^2.1.0",
         "http-server": "^0.12.3",
         "kue": "^0.11.6",
