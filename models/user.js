@@ -566,6 +566,34 @@ class User {
         return sql;
     }
 
+    getTotalNumberOfCandidates() {
+        var sql = `SELECT COUNT(*) AS total_no_of_candidates FROM user_role where role_id = 1`;
+
+        return sql;
+    }
+
+    getTotalNumberOfCandidatesForTheWeek() {
+        var sql = `SELECT COUNT(*) AS no_of_candidates_this_week FROM user_role ur \
+                INNER JOIN user u ON u.user_id = ur.user_id where role_id = 1 AND \
+                u.date_created > '2020-09-11' AND u.date_created <= '2020-09-17'`;
+
+        return sql;
+    }
+
+    getTotalNumberOfRecruiters() {
+        var sql = `SELECT COUNT(*) AS total_no_of_recruiters FROM user_role where role_id = 2`;
+
+        return sql;
+    }
+
+    getTotalNumberOfRecruitersForTheWeek() {
+        var sql = `SELECT COUNT(*) AS no_of_recruiters_this_week FROM user_role ur \
+                INNER JOIN user u ON u.user_id = ur.user_id where role_id = 2 AND \
+                u.date_created > '2020-09-11' AND u.date_created <= '2020-09-17'`;
+
+        return sql;
+    }
+
 }
 
 module.exports = User;

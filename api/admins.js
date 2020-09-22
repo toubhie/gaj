@@ -1022,7 +1022,7 @@ router.get("/get-recruiter-activity-history", (req, res, next) => {
     }
 });
 
-router.get("/get-recruiter-statistics", (req, res, next) => {
+router.get("/get-admin-statistics", (req, res, next) => {
     try {
         helpers.checkifAuthenticated(req, res);
 
@@ -1030,29 +1030,28 @@ router.get("/get-recruiter-statistics", (req, res, next) => {
         var user_id = userData.user_id;
 
         var user = new User();
-        db.query(user.getCountOfJobOpenings(user_id), (err, data) => {
+        db.query(user.getTotalNumberOfCandidates(user_id), (err, data) => {
             if (err) { logger.log(err) } else {
-                var recruiterJobOpeningsCount = data[0].count;
+                var totalNoOfCandidates = data[0].total_no_of_candidates;
 
-                db.query(user.getCountOfTotalQualifiedCandidates(user_id), (err, data) => {
+                db.query(user.getTotalNumberOfCandidatesForTheWeek(user_id), (err, data) => {
                     if (err) { logger.log(err) } else {
-                        var recruiterTotalQualifiedCandidatesCount = data[0].count;
+                        var noOfCandidatesThisWeek = data[0].no_of_candidates_this_week;
 
-                        db.query(user.getCountOfRecruiterSavedCandidates(user_id), (err, data) => {
+                        db.query(user.getTotalNumberOfRecruiters(user_id), (err, data) => {
                             if (err) { logger.log(err) } else {
-                                var recruiterSavedCandidates = data[0].count;
+                                var totalNoOfRecruiters = data[0].total_no_of_recruiters;
 
-                                var assessment = new Assessment()
-                                db.query(assessment.getCountOfRecruiterAssessmentsCreated(user_id), (err, data) => {
+                                db.query(assessment.getTotalNumberOfRecruitersForTheWeek(user_id), (err, data) => {
                                     if (err) { logger.log(err) } else {
-                                        var recruiterAssessmentCreated = data[0].count;
+                                        var noOfRecruitersThisWeek = data[0].no_of_recruiters_this_week;
 
                                         res.status(200).json({
-                                            message: "Recruiter Statistics.",
-                                            jobOpeningsCount: recruiterJobOpeningsCount,
-                                            totalQualifiedCandidatesCount: recruiterTotalQualifiedCandidatesCount,
-                                            savedCandidatesCount: recruiterSavedCandidates,
-                                            assessmentsCreatedCount: recruiterAssessmentCreated
+                                            message: "Admin Statistics.",
+                                            candidateCount: totalNoOfCandidates,
+                                            candidateWeekCount: noOfCandidatesThisWeek,
+                                            recruiterCount: totalNoOfRecruiters,
+                                            recruiterWeekCount: noOfRecruitersThisWeek
                                         });
                                     }
                                 });

@@ -1532,6 +1532,44 @@ class Job {
 
 
     }
+
+    getTotalNumberOfJobsPosted() {
+        var sql = `SELECT COUNT(*) AS total_of_jobs_posted FROM job`;
+
+        return sql;
+    }
+
+    getTotalNumberOfJobsPostedThisWeek() {
+        var sql = `SELECT COUNT(*) AS no_of_jobs_posted_this_week FROM job \
+                WHERE date_created > '2020-09-11' AND date_created <= '2020-09-17'`;
+
+        return sql;
+    }
+
+    getTotalNumberOfActiveJobs() {
+        var sql = ``;
+
+        return sql;
+    }
+
+    getTotalNumberOfExpiredJobs() {
+        var sql = ``;
+
+        return sql;
+    }
+
+    getTotalNumberOfJobApplications() {
+        var sql = `SELECT COUNT(*) AS total_no_of_applications FROM application`;
+
+        return sql;
+    }
+
+    getTotalNumberOfJobApplicationsThisWeek() {
+        var sql = `SELECT COUNT(*) AS no_of_applications_this_week FROM application \
+                WHERE date_created > '2020-09-11' AND date_created <= '2020-09-17'`;
+
+        return sql;
+    }
 }
 
 module.exports = Job;
