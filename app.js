@@ -427,6 +427,24 @@ app.get('/cookie-policy', function(req, res) {
     }
 });
 
+app.get('/disclaimer', function(req, res) {
+    try {
+        if (typeof req.session.passport != 'undefined' || req.session.passport || req.session.passport != null) {
+            var userData = req.session.passport.user;
+            res.render('disclaimer', {
+                userAuthenticated: 'true',
+                userData: userData
+            });
+        } else {
+            res.render('disclaimer', {
+                userAuthenticated: 'false'
+            });
+        }
+    } catch (error) {
+        logger.log(error);
+    }
+});
+
 app.get('/h1dd3n_s1t3map', function(req, res) {
     try {
         var sitemap_file = `${appRoot}/views/includes/sitemap/sitemap.xml`;
